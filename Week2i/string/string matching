@@ -96,5 +96,60 @@ int main()
 }
 method 3:
 robin karp algo
+#include<bits/stdc++.h>
+using namespace std;
+#define d 256
+
+void match_index(string str,string ptn,int n,int m,int q)
+{
+    int h=1;
+   for(int i=1;i<m;i++)
+   {
+       h=(h*d)%q;
+   }
+   //hash hash value for ptn and str
+   int t=0;//hash value for txt
+   int p=0;//hash value for ptn
+   for(int i=0;i<m;i++)
+   {
+       t=(t*d+str[i])%q;
+       p=(p*d+ptn[i])%q;
+   }
+   for(int i=0;i<=n-m;i++)
+   {
+       if(p==t)
+       {
+           int j;
+           for( j=0;j<m;j++)
+           {
+               if(str[i+j]!=ptn[j])
+               break;
+           }
+           if(j==m)
+           cout<<" petern found at index "<<i<<endl;
+       }
+       if(i<n-m)
+       {
+           t=(d*(t-str[i]*h)+str[i+m])%q;
+           if(t<0)
+           t=t+q;
+       }
+   }
+
+}
+
+
+int main()
+{
+    string str="geeksforgeeks";
+    string ptn ="geeks";
+    int m=ptn.length();
+    int n=str.length();
+    int q=256;
+    match_index(str,ptn,n,m,q);
+}
+metod 4 
+using autometa theory
+thankyou
 
 
