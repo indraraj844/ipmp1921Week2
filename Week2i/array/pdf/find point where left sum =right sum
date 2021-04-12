@@ -33,4 +33,48 @@ int main()
 }
 method 2
 using two pointer
+#include<bits/stdc++.h>
+using namespace std;
+void find_point(int arr[],int n)
+{
+    int l=0,h=n-1;
+    int leftsum=0,rightsum=0;
+    sort(arr,arr+n);
+    leftsum+=arr[l];
+    rightsum+=arr[h];
+    while(l<h)
+    {
+        
+        while(leftsum<rightsum&&l<h)
+        {
+            l++;
+            leftsum+=arr[l];
+        }
+            
+        while(rightsum<leftsum&&l<h)
+        {
+              h--;
+              rightsum+=arr[h];
+            
+        }
+          
+    }
+    if(leftsum==rightsum && l==h)
+    cout<<" point is "<<arr[l];
+    else 
+    cout<<" no point in array";
+
+    return;
+  
+}
+
+int main()
+{
+    int arr[7] = {-7, 1, 5, 2, -4, 3, 0};
+     int n =7 ;
+    find_point(arr,n);
+    return 0;
+}
+still need correction
+thankyou
 
