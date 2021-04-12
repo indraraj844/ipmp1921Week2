@@ -1,0 +1,36 @@
+method 1:
+simple traversal
+#include<bits/stdc++.h>
+using namespace std;
+void find_point(int arr[],int n)
+{
+    int leftsum=0,rightsum=0;
+    for(int i=1;i<n;i++)
+        rightsum+=arr[i];
+    
+    for(int i=1;i<n;i++)
+    {
+        if(leftsum==rightsum)
+        {
+            cout<<"point is "<<arr[i-1];
+            return;
+        }
+            
+        leftsum+=arr[i-1];
+        rightsum-=arr[i];
+    }
+    if(leftsum==rightsum)
+     cout<<"point is "<<arr[n-1];
+  
+}
+
+int main()
+{
+    int arr[4] = {4, 1, 4, 5,};
+     int n = 4;
+    find_point(arr,n);
+    return 0;
+}
+method 2
+using two pointer
+
