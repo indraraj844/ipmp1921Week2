@@ -91,4 +91,29 @@ int main()
 }
 method 3
 using stl libarary
+#include<bits/stdc++.h>
+using namespace std;
 
+int number_of_inversion(int arr[],int n)
+{
+ multiset<int>set1;
+ set1.insert(arr[0]);
+ int inv_count=0;
+ multiset<int>::iterator itset1;
+ for(int i=1;i<n;i++)
+ {  set1.insert(arr[i]);
+     itset1=set1.upper_bound(arr[i]);
+     inv_count+=distance(itset1,set1.end());
+ }
+ return inv_count;
+ 
+}
+
+int main()
+{
+    int arr[4]={8,4,2,1};
+    int size=4;
+    cout<<number_of_inversion(arr,size);
+    return 0;
+}
+thankyou
