@@ -1,0 +1,22 @@
+M-1
+#include<bits/stdc++.h>
+using namespace std;
+
+string longest_substring(string str)
+{
+    string mx="";
+    for(int i=0;str[i];i++)
+    {
+        mx=max(mx,str.substr(i));
+    }
+    return mx;
+}
+
+int main()
+{
+    string str="asdaf";
+    cout<<"longest substring ="<<longest_substring(str);
+    return;
+}
+
+M-2
