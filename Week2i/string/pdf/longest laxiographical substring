@@ -20,3 +20,39 @@ int main()
 }
 
 M-2
+s(n) o(less than n^2)
+we store max occurance index in a array
+than traverse that array for get maximum substring
+
+#include<bits/stdc++.h>
+using namespace std;
+
+string longest_substring(string str)
+{
+    char max_char='a';
+    vector<char>v;
+    for(int i=0;str[i];i++)
+    {
+        if(str[i]>=max_char)
+        {
+            max_char=str[i];
+            v.push_back(i);
+            
+        }
+    }
+    string mx="";
+    for(int i=0;i<v.size();i++)
+    {
+        mx=max(mx,str.substr(v[i]));
+    }
+    return mx;
+}
+
+int main()
+{
+    string str="asdaf";
+    cout<<"longest substring ="<<longest_substring(str);
+    return 0;
+}
+thankyou
+
